@@ -37,7 +37,7 @@ Booking_Status varchar(33),
 PlanID int(10),
 MemberID int(10),
 StaffID int(10));
-select*from booking;
+
 
 create table revenue (
 PaymentID int(12) auto_increment primary key,
@@ -47,3 +47,8 @@ PaymentMethod varchar(12),
 CC_NUM varchar(13),
 check_Num varchar(22),
 PaymentStatus varchar(33));
+
+
+alter table  MemberDetails add foreign key (PlanID) references plan(PlanID);
+alter table  Bookings add foreign key (StaffID) references StaffDetails(StaffID);
+alter table Bookings add foreign key (MemberID) references MemberDetails(MemberID);
